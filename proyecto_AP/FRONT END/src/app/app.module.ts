@@ -16,7 +16,9 @@ import { ProyectoComponent } from './components/proyecto/proyecto.component';
 import { FooterComponent } from './components/footer/footer.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component'
+import { LoginComponent } from './components/login/login.component';
+import { InterceptorServiceComponent } from './service/interceptor-service/interceptor-service.component'
+import { InterceptorProvider } from './service/interceptor-service';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { LoginComponent } from './components/login/login.component'
     ProyectoComponent,
     FooterComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    InterceptorServiceComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,9 @@ import { LoginComponent } from './components/login/login.component'
     HttpClient
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    InterceptorProvider,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

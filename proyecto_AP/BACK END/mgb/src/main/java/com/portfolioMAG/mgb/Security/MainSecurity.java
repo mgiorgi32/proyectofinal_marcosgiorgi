@@ -10,6 +10,13 @@ import com.portfolioMAG.mgb.Security.Service.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -40,11 +47,13 @@ public class MainSecurity extends WebSecurityConfigurerAdapter{
                 .exceptionHandling().authenticationEntryPoint(jwtEntryPoint)
                 .and()
                 .sessionManagment().sessionCreationPolicy(SessionCreationPolicy.STATLESS);
+        htpp.addFileBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
     @Override
     protected AuthenticationManager authenticationManager() throws Exception{
         return super.authenticationManager();
     }
+    @Bean
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception{
         return super.authenticationManagerBean();
