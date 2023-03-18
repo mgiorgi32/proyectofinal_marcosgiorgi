@@ -1,29 +1,25 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package com.portfolioMAG.mgb.DTO;
 
 import jakarta.validation.constraints.NotBlank;
 
 
-public class DtoExperiencia {
-    @NotBlank
-    private sting id;
-    @NotBlank
+public class DtoEducacion {
+      @NotBlank
    private String nombreE;
     @NotBlank
    private String descripcionE;
 
-
-//constuctores
-
-    public DtoExperiencia() {
+    public DtoEducacion() {
     }
 
-    public DtoExperiencia(String nombreE, String descripcionE) {
+    public DtoEducacion(String nombreE, String descripcionE) {
         this.nombreE = nombreE;
         this.descripcionE = descripcionE;
     }
-    
-    //getters y setters
 
     public String getNombreE() {
         return nombreE;
@@ -41,5 +37,4 @@ public class DtoExperiencia {
         this.descripcionE = descripcionE;
     }
     
-
 }

@@ -1,0 +1,19 @@
+<div class="container" *ngif="eduLab">
+    <div class="row">
+        <div>
+            <form (ngSubmit)="onUpdate()" novalidate #f="ngform">
+                <div class="form group">
+                    <label for="nombreE">nombre institucion</label>
+                    <input type="text" class= "form-control" name="nombreE" id="nombreE" [(ngModel)]="eduLab.nombreE" required>
+                </div>
+                <div class="form group">
+                    <label for="descripcionE">descripcion de la <textarea name="" id="" cols="30" rows="10"></textarea></label>
+                    <input type="text" class= "form-control" name="descripcionE" id="descripcionE" [(ngModel)]="eduLab.descripcionE" required>
+                </div>
+                <button class="btn btn-light">
+                    Actualizar
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
