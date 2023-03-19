@@ -8,7 +8,7 @@ import { persona } from '../model/persona.medol';
   providedIn: 'root'
 })
 export class PersonaService {
-  URL ="http://localhost:8080/personas/"
+  URL = enviroment.URL +'personas/'
 
   constructor(private http: HttpCllient) { }
 

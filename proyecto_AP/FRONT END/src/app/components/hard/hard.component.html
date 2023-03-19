@@ -1,61 +1,16 @@
 <div class="row">
+
     <h1>Hard & soft skills</h1>
-    <div class="text-center col-sm-4 col-md-4 col-lg-4">
-         <circle-progress
-         [percent]="50"
-         [radius]="100"
-         [title]="'HTML'"
-         [showUnits]="false"
-         [titlecolor]="'green'"
-         [titleFontSize]="'3em'"
-         [showSubtitle]="false"
-         [outerStrokeWidth]="12"
-         [innerStrokeWidth]="4"
-         [outerStrokeColor]="'blue'"
-         [innerStrokeColor]="'aqua'"
-         [animation]="true"
-         [animationDuration]="300"
-         ></circle-progress>
+
+    <div class="col-lg-2">
+        <button type="button" routerLink="/newskill" class="btn btn-dark" *ngif="isLogged">Nueva skill</button>
     </div>
-    <div class="text-center col-sm-4 col-md-4 col-lg-4">
-        <circle-progress
-        [percent]="60"
-        [radius]="100"
-        [title]="'CSS'"
-        [showUnits]="false"
-        [titlecolor]="'green'"
-        [titleFontSize]="'3em'"
-        [showSubtitle]="false"
-        [outerStrokeWidth]="12"
-        [innerStrokeWidth]="4"
-        [outerStrokeColor]="'blue'"
-        [innerStrokeColor]="'aqua'"
-        [animation]="true"
-        [animationDuration]="300"
-        ></circle-progress>
-   </div>
-   <div class="text-center col-sm-4 col-md-4 col-lg-4">
+    <div class="text-center col-sm-4 col-md-4 col-lg-4 circulo" *ngFor="let skill of skill">
          <circle-progress
-         [percent]="50"
+         [percent]="(skill.porcentaje)"
          [radius]="100"
-         [title]="'JAVASCRIPT'"
-         [showUnits]="false"
-         [titlecolor]="'green'"
-         [titleFontSize]="'3em'"
-         [showSubtitle]="false"
-         [outerStrokeWidth]="12"
-         [innerStrokeWidth]="4"
-         [outerStrokeColor]="'blue'"
-         [innerStrokeColor]="'aqua'"
-         [animation]="true"
-          [animationDuration]="300"
-          ></circle-progress>
-   </div>
-   <div class="text-center col-sm-4 col-md-4 col-lg-4">
-         <circle-progress
-         [percent]="90"
-         [radius]="100"
-         [title]="'INGLES'"
+         [title]="(skill.nombre)"
+         [showTitle]="true"
          [showUnits]="false"
          [titlecolor]="'green'"
          [titleFontSize]="'3em'"
@@ -67,39 +22,15 @@
          [animation]="true"
          [animationDuration]="300"
          ></circle-progress>
-   </div>
-   <div class="text-center col-sm-4 col-md-4 col-lg-4">
-         <circle-progress
-         [percent]="85"
-         [radius]="100"
-         [title]="'TRABAJO EN EQUIPO'"
-         [showUnits]="false"
-         [titlecolor]="'green'"
-         [titleFontSize]="'3em'"
-         [showSubtitle]="false"
-         [outerStrokeWidth]="12"
-         [innerStrokeWidth]="4"
-         [outerStrokeColor]="'blue'"
-         [innerStrokeColor]="'aqua'"
-         [animation]="true"
-         [animationDuration]="300"
-         ></circle-progress>
-   </div>
-   <div class="text-center col-sm-4 col-md-4 col-lg-4">
-         <circle-progress
-         [percent]="70"
-         [radius]="100"
-         [title]="'GITHUB'"
-         [showUnits]="false"
-         [titlecolor]="'green'"
-         [titleFontSize]="'3em'"
-         [showSubtitle]="false"
-         [outerStrokeWidth]="12"
-         [innerStrokeWidth]="4"
-         [outerStrokeColor]="'blue'"
-         [innerStrokeColor]="'aqua'"
-         [animation]="true"
-         [animationDuration]="300"
-         ></circle-progress>
-   </div>
+         <div>
+            <td *ngif="isLogged">
+                <button class="btn btn-secondary" routerLink="/editskill/((hys.id))"><i
+                   class="bi bi-pencil"></i>EDITAR</button>
+           </td>
+           <td *ngif="isLogged">
+               <button class="btn btn-danger" (click)="delete(hys.id)"><i
+               class="bi bi-backspace-fill"></i>BORRAR</button>
+           </td>
+         </div>
+    </div>
 </div>
