@@ -1,15 +1,20 @@
 <div class="row">
+    
+        <button type="button" class="btn btn-primary" routerLink="/editacercade/1" *ngif="isLogged">
+            Editar persona
+        </button>
+    
     <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-        <img src="../../../assets/yo.jpg" class="img-fluid" id="fotodeperfil">
+        <img src={{persona.img}} class="img-fluid" id="fotodeperfil">
     </div>
     <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-        <p id="nombre">Marcos Aurelio Giorgi</p>
+        <p id="nombre">{{persona.nombre}}{{persona.apellido}}</p>
         <p>Full stack developer JR</p>
     </div>
     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
         <span>
             <h1>Acerca de mi</h1>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt nisi adipisci recusandae pariatur similique porro molestias corrupti accusantium, dolorum aspernatur, maxime quidem perferendis. Beatae rerum consequatur doloremque? Itaque, corrupti sint?</p>
+            <p>{{persona.descripcion}}</p>
         </span>
     </div>
 </div>

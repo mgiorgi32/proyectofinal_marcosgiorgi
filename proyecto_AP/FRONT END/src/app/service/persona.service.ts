@@ -8,11 +8,24 @@ import { persona } from '../model/persona.medol';
   providedIn: 'root'
 })
 export class PersonaService {
-  URL = enviroment.URL +'personas/'
+  URL = environment.URL +'personas/'
+  httpClient: any;
+  expURL: string;
 
-  constructor(private http: HttpCllient) { }
+  constructor(private http: HttpClient) { }
 
-  public getPersona(): Observable<persona>{
-    return this.http.get<persona>(this.URL+ "traer/perfil");
+  public lista(): Observable<persona[]>{
+    return this.httpClient.get<persona[]>(this.expURL + 'lista');
   }
+
+  public detail(id: number): Observable<persona>{
+    return this.httpClient.get<persona>(this.expURL + 'detail'/$(id))
+  }
+
+  public update(id: number, persona:persona): Observable<any>{
+    return this.httpClient.put<any>(this.expURL + 'update/$(id)', persona);
+
+  }
+
+  
 }

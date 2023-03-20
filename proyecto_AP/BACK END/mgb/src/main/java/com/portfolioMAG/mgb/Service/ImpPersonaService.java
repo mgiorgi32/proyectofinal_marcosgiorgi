@@ -3,32 +3,43 @@ package com.portfolioMAG.mgb.Service;
 
 import com.portfolioMAG.mgb.Entity.Persona;
 import com.portfolioMAG.mgb.Repository.IPersonaRepository;
-import static java.time.OffsetTime.now;
+import jakarta.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 @Service
-public class ImpPersonaService implement IPersonaService{
-   @Autovired IPersonaRepository ipersonarepository;
-    
-    @Override
-    public List<Persona> getPersona(){
-        List<Persona> persona=ipersonarepository.findAll()
-                return persona;
+@Transactional
+public class ImpPersonaService {
+   @Autowired IPersonaRepository ipersonarepository;
+     public List<Persona> List(){
+        
+        return ipersonarepository.findAll();
+        
     }
-        @Override
-    public void savePersona(Persona Persona){
-        ipersonarepository.save(persona)
+    public Optional<Persona> getOne(int id){
+        return ipersonarepository.findById(id);
+        
     }
-        @Override
-    public void deletePersona(Long id){
+    public Optional<Persona> getByNombre(String nombre){
+        return ipersonarepository.findByNombre(nombre);
+        
+    }
+    public void save(Persona expe){
+        ipersonarepository.save(expe);
+        
+    }
+    public void delete(int id){
         ipersonarepository.deleteById(id);
     }
-        @Override
-    public Persona findPersona(Long id){
-        Persona persona = ipersonarepository.findById(id).orElse(null)
-                return persona
+    public boolean existsById(int id){
+        return ipersonarepository.existsById(id);
     }
+    public boolean existsByNombre(String nombre){
+            return ipersonarepository.existsByNombre(nombre);
+    }
+
     
 }
