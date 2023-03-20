@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { enviroment } from 'enviroments/enviroments';
+import { enviroment } from 'environments/environments';
 import { Observable } from 'rxjs';
 import { Skill } from '../model/skill';
 
